@@ -1,5 +1,7 @@
 const defaultResult = 0;
 
+let randomNum = 2;
+
 let currentResult = defaultResult;
 
 currentResult = currentResult + 10;
