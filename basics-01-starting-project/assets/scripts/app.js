@@ -2,16 +2,46 @@ const defaultResult = 0;
 
 let currentResult = defaultResult;
 
-function add(num1, num2){
-    const result = num1 + num2;
-    return result;
+function getNum() {
+    return parseInt(userInput.value);
 }
 
-add(7, 5);
+function getOutput(operator, prevResult, result){
+    const resultDesc = `${prevResult} ${operator} ${result}`;
+    outputResult(currentResult, resultDesc);
+}
 
-currentResult = currentResult + 10;
+function add(num1, num2){
+    const newNum = getNum();
+    const initialNum = currentResult;
+    currentResult = currentResult + newNum;
+    getOutput('+', initialNum, newNum);
+    
+}
 
-let desc = `( ${defaultResult} + 10)`;
+function subtract(){
+    const newNum = getNum();
+    const initialNum = currentResult;
+    currentResult = currentResult - newNum;
+    getOutput('-', initialNum, newNum);
 
-outputResult(currentResult, desc);
+}
 
+function multiply(){
+    const newNum = getNum();
+    const initialNum = currentResult;
+    currentResult = currentResult * newNum;
+    getOutput('*', initialNum, newNum);
+}
+
+function divide(){
+    const newNum = getNum();
+    const initialNum = currentResult;
+    currentResult = currentResult / newNum;
+    getOutput('/', initialNum, newNum);
+}
+
+addBtn.addEventListener('click', add);
+subtractBtn.addEventListener('click', subtract);
+multiplyBtn.addEventListener('click', multiply);
+divideBtn.addEventListener('click', divide);
