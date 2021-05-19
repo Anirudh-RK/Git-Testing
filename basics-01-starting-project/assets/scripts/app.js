@@ -4,6 +4,7 @@ let currentResult = defaultResult;
 
 let logEntry = [];
 
+
 function getNum() {
     return parseInt(userInput.value);
 }
